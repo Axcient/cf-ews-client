@@ -5,18 +5,12 @@ pipeline {
   jdk "OpenJDK 11"
   }
 
-  environment {
-    MAVEN_HOME = tool name: 'Maven' // Ensure Maven is configured in Jenkins
-    JAVA_HOME = tool name: 'JDK'   // Ensure JDK is configured in Jenkins
-    PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
-  }
-
   parameters {
     choice(name: 'MAVEN_STAGE', choices: ['package', 'deploy'], description: '''
     Whether to package or deploy the plugin:    
       package - Package the plugin for retrieval from the Jenkins job's workspace
       deploy - Package and deploy the plugin to the configured Maven repository (presumably x360Cloud's internal Nexus repository)
-    ''', defaultValue: 'package')
+    ''')
   }
 
   stages {
@@ -43,7 +37,7 @@ pipeline {
     stage ('build') {
       steps {
         script{
-          sh mvn clean -X ${MAVEN_STAGE}
+          sh "mvn clean -X ${MAVEN_STAGE}"
         }
       }
     }
