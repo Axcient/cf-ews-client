@@ -31,7 +31,7 @@
     <groupId>com.microsoft.ews-java-api</groupId>
     <artifactId>ews-java-api</artifactId>
     
-    <version>2.1-SNAPSHOT</version>
+    <version>2.1.0</version>
 
     <name>Exchange Web Services Java API</name>
     <description>Exchange Web Services (EWS) Java API</description>
@@ -276,13 +276,9 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
-                <extensions>true</extensions>
+                <version>1.6.5</version>
                 <configuration>
-                    <!-- Ref.: http://books.sonatype.com/nexus-book/reference/staging-deployment.html -->
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
                 </configuration>
             </plugin>
             <plugin>
@@ -373,21 +369,6 @@
             <!-- Dependency version reporting. Relies on standard version numbering
                 - you should use standard version numbering too!
                 http://mojo.codehaus.org/versions-maven-plugin/version-rules.html -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>${versions-maven-plugin.version}</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>dependency-updates-report</report>
-                            <report>plugin-updates-report</report>
-                            <report>property-updates-report</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-
             <!-- Generates the Javadoc for the report. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -397,19 +378,6 @@
                     <linksource>true</linksource>
                     <additionalparam>${javadoc.doclint.param}</additionalparam>
                 </configuration>
-            </plugin>
-
-            <!-- Generates a nice HTML linked source cross-reference. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>${maven-jxr-plugin.version}</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>${maven-surefire-report-plugin.version}</version>
             </plugin>
         </plugins>
     </reporting>
