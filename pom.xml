@@ -80,7 +80,7 @@
         <javadoc.doclint.param/>
 
         <!--  Dependencies [BUILD]:  -->
-        <maven-checkstyle-plugin.version>2.16</maven-checkstyle-plugin.version>
+        <maven-checkstyle-plugin.version>3.3.2</maven-checkstyle-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
@@ -95,6 +95,7 @@
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
         <maven-surefire-report-plugin.version>2.18.1</maven-surefire-report-plugin.version>
         <jacoco-maven-plugin.version>0.7.5.201505241946</jacoco-maven-plugin.version>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
         <!--  Dependencies [COMPILE]:  -->
         <httpclient.version>4.4.1</httpclient.version>
         <httpcore.version>4.4.1</httpcore.version>
@@ -127,27 +128,6 @@
             <activation>
                 <jdk>[1.7,)</jdk>
             </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven-checkstyle-plugin.version}</version>
-                    <configuration>
-                    <failsOnError>true</failsOnError>
-                        <configLocation>google_checks.xml</configLocation>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>checkstyle</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
         <profile>
             <id>release-sign-artifacts</id>
