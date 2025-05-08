@@ -16,7 +16,7 @@ pipeline {
     Whether to package or deploy the plugin:    
       package - Package the plugin for retrieval from the Jenkins job's workspace
       deploy - Package and deploy the plugin to the configured Maven repository (presumably x360Cloud's internal Nexus repository)
-    ''', defaultValue: 'package')
+    ''')
   }
 
   stages {
