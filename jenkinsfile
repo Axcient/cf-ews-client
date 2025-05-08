@@ -5,12 +5,6 @@ pipeline {
   jdk "OpenJDK 11"
   }
 
-  environment {
-    MAVEN_HOME = tool name: 'Maven' // Ensure Maven is configured in Jenkins
-    JAVA_HOME = tool name: 'JDK'   // Ensure JDK is configured in Jenkins
-    PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
-  }
-
   parameters {
     choice(name: 'MAVEN_STAGE', choices: ['package', 'deploy'], description: '''
     Whether to package or deploy the plugin:    
