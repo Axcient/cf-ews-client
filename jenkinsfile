@@ -37,7 +37,7 @@ pipeline {
     stage ('build') {
       steps {
         script{
-          sh "mvn clean -X ${MAVEN_STAGE}"
+          sh "mvn clean -X ${MAVEN_STAGE} -Djacoco.skip=true"
         }
       }
     }
