@@ -164,13 +164,10 @@
     </scm>
 
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh-snapshot</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <id>cloudfinder-nexus</id>
+            <name>Cloudfinder Nexus</name>
+            <url>http://cf-dev-build1.ams.efscloud.net:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
