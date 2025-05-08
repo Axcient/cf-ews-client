@@ -110,6 +110,23 @@
         <logback.version>1.1.3</logback.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>cloudfinder-nexus</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>Cloudfinder Nexus Release Repository</name>
+            <url>http://cf-dev-build1.ams.efscloud.net:8081/repository/maven-releases/</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <id>cloudfinder-nexus</id>
+            <uniqueVersion>false</uniqueVersion>
+            <name>Cloudfinder Nexus Snapshot Repository</name>
+            <url>http://cf-dev-build1.ams.efscloud.net:8081/repository/maven-snapshots/</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
     <profiles>
         <profile>
             <!-- handle broken builds on jdk1.8 due to doclint function -->
@@ -200,17 +217,6 @@
         <connection>scm:git:ssh://git@github.com:OfficeDev/ews-java-api.git</connection>
         <developerConnection>scm:git:ssh://git@github.com:OfficeDev/ews-java-api.git</developerConnection>
     </scm>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh-snapshot</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-    </distributionManagement>
 
     <dependencies>
         <dependency>
